@@ -1,16 +1,21 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @jersey.photo.key%>');">
-  <div class="container">
-    <h1><%= @jersey.name %> <strong><%= @jersey.size %></strong> <strong><%= @jersey.price %></strong>!</h1>
-    <p><%= @jersey.description %></p>
+<div class="container">
+ <div class="row mt-3">
+   <div class="banner col-lg-6" style="background-image: url('<%= cl_image_path @jersey.photo.key%>');">
+  </div>
+  <div class="content col-lg-6">
+    <h1><%= @jersey.name %></h1>
+    <h2>Price: <strong><%= @jersey.price %></strong> AUD | Size: <strong><%= @jersey.size %></strong></h2>
+    <h5><%= @jersey.description %></h5>
     <%= link_to "Buy It", new_jersey_booking_path(@jersey), class: "btn btn-lg btn-info" %>
     <%= link_to "Delete Your Jersey", @jersey, method: :delete, remote: true,  class: "btn btn-sm btn-danger" %>
     <%= link_to "Edit Your Jersey", edit_jersey_path(@jersey), class: "btn btn-sm btn-success" %>
-    <%= link_to "Back to Store", jerseys_path, class: "btn btn-outline-warning btn-sm" %>
+    <%= link_to "Back to Store", jerseys_path, class: "btn btn-warning btn-sm" %>
   </div>
+ </div>
 </div>
 
 <div class="container">
-  <div id="reviews">  
+  <div class="mt-5" id="reviews">  
     <h2><%= pluralize @jersey.reviews.size, "review" %></h2>
     <% if @jersey.reviews.blank? %>
       Be the first to leave a review for <%= @jersey.name %>

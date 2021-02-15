@@ -1,4 +1,5 @@
 import { initFlatpickr } from "./plugins/flatpickr";
+import { flexPanel } from "./plugins/panel";
 
 require("@rails/ujs").start();
 require("turbolinks").start();
@@ -10,4 +11,5 @@ import "bootstrap";
 
 document.addEventListener("turbolinks:load", () => {
   initFlatpickr();
+  flexPanel();
 });
