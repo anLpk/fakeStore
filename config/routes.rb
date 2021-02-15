@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   resources :jerseys do
     resources :bookings
   end
+
+  resources :jerseys do
+    resources :jersey_categories, only: [:new, :create, :show]
+  end
 end
