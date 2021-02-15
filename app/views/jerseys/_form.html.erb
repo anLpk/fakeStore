@@ -2,7 +2,7 @@
   <%= c.input :name %>
   <%= c.input :size %>
   <%= c.input :price %>
+  <%= c.input :photo, as: :file %>
   <%= c.input :description %>
-  <%# <%= c.input :photo, as: :file, label:false %>
   <%= c.submit "#{jersey.id ? "Edit" : "Add" } Jersey", class: "btn btn-success" %>
 <% end %>

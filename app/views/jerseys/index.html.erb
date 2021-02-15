@@ -1,15 +1,22 @@
 <div class="container">
   <div>
-    <h1>Jerseys</h1>
-    <%= link_to 'Add New Jersey', new_jersey_path, class: 'btn btn-sm btn-success' %>
+    <h1>Throwback! Ranking the top jerseys in NBA history</h1>
+    <h2>If you want to sell your vintage jersey, click the button!<%= link_to 'Add New Jersey', new_jersey_path, class: 'ml-2 btn btn-success' %></h2>
   </div>
+</div>
 
-  <ul>
+<div class="container">
+  <div class="row">
     <% @jerseys.each do |jersey| %>
-      <li><%= link_to jersey.name %><%= link_to jersey.size %><%= link_to jersey.price %>
-      <%= link_to "Delete Your Jersey", jersey, method: :delete, remote: true %>
-      <%= link_to "Edit Your Jersey", edit_jersey_path(jersey)%> 
-      <%= link_to "Show Details", jersey_path(jersey) %> </li>
+      <div class="card col-lg-3 m-4">
+        <% jersey.photo.attached? ? @image = "//res.cloudinary.com/apak/image/upload/#{jersey.photo.key}": @image = jersey.image_scr %>
+        <img class="card-img-top" src="<%= @image %>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= jersey.name %></h5>
+          <p class="card-text"><%= jersey.description %></p>
+          <%= link_to "Show Details", jersey_path(jersey) %>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>

@@ -47,6 +47,6 @@ class JerseysController < ApplicationController
   end
 
   def jersey_params
-    params.require(:jersey).permit(:name, :price, :size, :description)
+    params.require(:jersey).permit(:name, :price, :size, :description, :photo)
   end
 end
