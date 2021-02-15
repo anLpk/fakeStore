@@ -1,18 +1,23 @@
-<h1><%= @jersey.name %> <small><%= @jersey.description %></small></h1>
+<div class="container">
+  <h1><%= @jersey.name %></h1>
+  <h2><%= @jersey.description %></h2>
+  <%= link_to "Buy It", new_jersey_booking_path(@jersey), class: "btn btn-info" %>
   <div id="reviews">  
     <h2><%= pluralize @jersey.reviews.size, "review" %></h2>
     <% if @jersey.reviews.blank? %>
       Be the first to leave a review for <%= @jersey.name %>
     <% else %>
       <% @jersey.reviews.each do |review| %>
-        <p id="review-<%= review.id %>"><%= review.content %></p>
+        <p id="review-<%= review.id %>"><%= review.content %> <%= review.rating %></p>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
+
 <div class="container">
   <%= simple_form_for([ @jersey, @review ], remote: true) do |f| %>
     <%= f.input :content %>
-    <%= f.input :rating %>
+    <%= f.input :rating, :collection => 1..5 %>
     <%= f.button :submit %>
   <% end %>
 </div>

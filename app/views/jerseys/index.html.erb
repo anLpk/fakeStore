@@ -1,14 +1,15 @@
-<div class="container"></div>
-<h1>Jerseys</h1>
-<div class="d-flex">
-  <%= link_to 'Add New Jersey', new_jersey_path, class: 'btn btn-sm btn-success' %>
-</div>
+<div class="container">
+  <div>
+    <h1>Jerseys</h1>
+    <%= link_to 'Add New Jersey', new_jersey_path, class: 'btn btn-sm btn-success' %>
+  </div>
 
-<ul>
-  <% @jerseys.each do |jersey| %>
-    <li><%= link_to jersey.name %></li>
-    <%= link_to "Delete Your Jersey", jersey, method: :delete, remote: true, class: "btn btn-sm btn-danger" %>
-    <%= link_to "Edit Your Jersey", edit_jersey_path(jersey), class: "btn btn-sm btn-warning" %> 
-    <%= link_to "Show Details", jersey_path(jersey), class: "btn btn-sm btn-success" %> 
-  <% end %>
-</ul>
+  <ul>
+    <% @jerseys.each do |jersey| %>
+      <li><%= link_to jersey.name %><%= link_to jersey.size %><%= link_to jersey.price %>
+      <%= link_to "Delete Your Jersey", jersey, method: :delete, remote: true %>
+      <%= link_to "Edit Your Jersey", edit_jersey_path(jersey)%> 
+      <%= link_to "Show Details", jersey_path(jersey) %> </li>
+    <% end %>
+  </ul>
+</div>

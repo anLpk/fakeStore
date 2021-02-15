@@ -1,3 +1,9 @@
 class Jersey < ApplicationRecord
   has_many :reviews, dependent: :destroy
+  has_many :bookings, dependent: :destroy
+
+  validates :name, presence: true
+  validates :size, presence: true
+  validates :price, presence: true
+  validates :description, presence: true
 end
