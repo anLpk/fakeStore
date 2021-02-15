@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" id='jersey-booking-dates' data-unavailable="<%= @jersey.unavailable_dates.to_json %>">
     <%= simple_form_for [@jersey, @booking] do |t| %>
-      <%= t.input :start_date, required: :true, input_html: { id: "booking_start_date" } %>
-      <%= t.input :end_date, required: :true, input_html: { id: "booking_end_date" } %>
+      <%= t.input :start_date, as: :string, required: :true, input_html: { id: "booking_start_date" } %>
+      <%= t.input :end_date, as: :string, required: :true, input_html: { id: "booking_end_date" } %>
       <%= t.submit "Confirm Your Booking", class: "btn btn-outline-success btn-sm" %>
     <% end %>
   <%= link_to "Back to Store", jerseys_path, class: "btn btn-outline-warning btn-sm" %>
