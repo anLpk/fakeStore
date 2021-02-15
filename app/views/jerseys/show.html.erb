@@ -1,7 +1,15 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @jersey.photo.key%>');">
+  <div class="container">
+    <h1><%= @jersey.name %> <strong><%= @jersey.size %></strong> <strong><%= @jersey.price %></strong>!</h1>
+    <p><%= @jersey.description %></p>
+    <%= link_to "Buy It", new_jersey_booking_path(@jersey), class: "btn btn-lg btn-info" %>
+    <%= link_to "Delete Your Jersey", @jersey, method: :delete, remote: true,  class: "btn btn-sm btn-danger" %>
+    <%= link_to "Edit Your Jersey", edit_jersey_path(@jersey), class: "btn btn-sm btn-success" %>
+    <%= link_to "Back to Store", jerseys_path, class: "btn btn-outline-warning btn-sm" %>
+  </div>
+</div>
+
 <div class="container">
-  <h1><%= @jersey.name %></h1>
-  <h2><%= @jersey.description %></h2>
-  <%= link_to "Buy It", new_jersey_booking_path(@jersey), class: "btn btn-info" %>
   <div id="reviews">  
     <h2><%= pluralize @jersey.reviews.size, "review" %></h2>
     <% if @jersey.reviews.blank? %>
@@ -21,6 +29,3 @@
     <%= f.button :submit %>
   <% end %>
 </div>
-
-        <%# <%= link_to "Delete Your Jersey", jersey, method: :delete, remote: true %>
-        <%# <%= link_to "Edit Your Jersey", edit_jersey_path(jersey)%>
