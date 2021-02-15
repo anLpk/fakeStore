@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :jerseys do
-    resources :reviews, only: :create
+    resources :reviews
   end
 end

@@ -1,21 +1,18 @@
-<div class="container">
-  <div class="row">
-  <h1><%= @jersey.name %> <small><%= @jersey.description %></small></h1>
-  <h2><%= pluralize @jersey.reviews.size, "review" %></h2>
-
-  <div id="jerseys">  
+<h1><%= @jersey.name %> <small><%= @jersey.description %></small></h1>
+  <div id="reviews">  
+    <h2><%= pluralize @jersey.reviews.size, "review" %></h2>
     <% if @jersey.reviews.blank? %>
       Be the first to leave a review for <%= @jersey.name %>
     <% else %>
       <% @jersey.reviews.each do |review| %>
-        <p><%= review.content %></p>
-      <% end %>
+        <p id="review-<%= review.id %>"><%= review.content %></p>
     <% end %>
-  </div>
-  </div>
+  <% end %>
 </div>
-
-<%= simple_form_for([ @restaurant, @review ]) do |f| %>
-  <%= f.input :content, as: :text %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <%= simple_form_for([ @jersey, @review ], remote: true) do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rating %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

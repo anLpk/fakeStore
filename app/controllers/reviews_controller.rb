@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.jersey = @jersey
     if @review.save
-      redirect_to jersey_path(@jersey)
+        redirect_to jersey_path(@jersey, anchor: "review-#{@review.id}")
     else
       render 'jerseys/show'
     end
