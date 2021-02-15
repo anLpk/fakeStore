@@ -21,7 +21,8 @@
       Be the first to leave a review for <%= @jersey.name %>
     <% else %>
       <% @jersey.reviews.each do |review| %>
-        <p id="review-<%= review.id %>"><%= review.content %> <%= review.rating %></p>
+        <p id="review-<%= review.id %>"><%= review.content %> </p>
+        <p>Rating: <%= review.rating%><i class="fas fa-star"></i></p>
       <% end %>
     <% end %>
   </div>
