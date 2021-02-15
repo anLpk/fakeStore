@@ -1,7 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+puts 'Creating jerseys...'
+Jersey.create!({
+  name: "Chicago Bulls",
+  price: 450,
+  size: "XL",
+  description: "NEW MEN'S Michael Jordan 1989 All Star NBA Jersey Red Size XL"
+})
+Jersey.create!({
+    name: "LA",
+    price: 650,
+    size: "L",
+    description: "NEW MEN'S Kobe Bryant 2009 All Star NBA Jersey Yellow Size L"
+})
+puts 'Finished!'

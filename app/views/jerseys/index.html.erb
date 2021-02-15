@@ -1,0 +1,8 @@
+<div class="container"></div>
+<h1>Jerseys</h1>
+
+<ul>
+  <% @jerseys.each do |jersey| %>
+    <li><%= link_to jersey.name, jersey_path(jersey) %></li>
+  <% end %>
+</ul>
