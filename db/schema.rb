@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_15_235337) do
+ActiveRecord::Schema.define(version: 2021_02_16_000339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 2021_02_15_235337) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "jersey_tags", force: :cascade do |t|
+    t.bigint "jersey_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["jersey_id"], name: "index_jersey_tags_on_jersey_id"
+    t.index ["tag_id"], name: "index_jersey_tags_on_tag_id"
+  end
+
   create_table "jerseys", force: :cascade do |t|
     t.string "name"
     t.string "size"
@@ -82,5 +91,7 @@ ActiveRecord::Schema.define(version: 2021_02_15_235337) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "jerseys"
+  add_foreign_key "jersey_tags", "jerseys"
+  add_foreign_key "jersey_tags", "tags"
   add_foreign_key "reviews", "jerseys"
 end

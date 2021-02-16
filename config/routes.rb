@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   end
 
   resources :jerseys do
-    resources :jersey_categories, only: [:new, :create, :show]
+    resources :jersey_tags, only: [:new, :create]
   end
 end

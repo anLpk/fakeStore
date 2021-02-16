@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <h1>Add your tag for <%= @jersey.name %> amazing jersey!</h1>
+       <%= simple_form_for [@jersey, @jersey_tag] do |c| %>
+         <%= c.association :tag %>
+         <%= c.submit "Add a Tag", class: "btn btn-sm btn-success" %>
+        <% end %>
+    </div>
+  </div>
+</div>

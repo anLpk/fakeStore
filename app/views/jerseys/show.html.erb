@@ -15,6 +15,17 @@
 </div>
 
 <div class="container">
+  <div class="row mt-4">
+    <div class="tag-category">
+      <% @jersey.tags.each do |tag| %>
+      <span class="badge badge-warning mr-1"><%= tag.name %></span>
+      <% end %>
+      <%= link_to "Add a Tag",  new_jersey_jersey_tag_path(@jersey), class: "btn btn-success btn-sm" %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
   <div class="mt-5" id="reviews">  
     <h2><%= pluralize @jersey.reviews.size, "review" %></h2>
     <% if @jersey.reviews.blank? %>

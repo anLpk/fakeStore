@@ -1,6 +1,8 @@
 class Jersey < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :jersey_tags
+  has_many :tags, through: :jersey_tags
   has_one_attached :photo
 
   validates :name, presence: true
