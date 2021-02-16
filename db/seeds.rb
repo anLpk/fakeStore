@@ -64,4 +64,17 @@ jersey_14.photo.attach(io: file, filename: 'photo14.jpg', content_type: 'image/j
 
 puts "#{Jersey.count} Jersey created..."
 
+puts "cleaning up tags"
+
+Tag.destroy_all
+
+puts 'Creating tags...'
+
+tag_names = ["All-Star", "G.O.A.T", "KingJames", "East", "West", "70's", "80's", "90's"]
+
+tag_names.each do |tag_name|
+  Tag.create!(name: tag_name)
+end
+
+puts "#{Tag.count} Tag created..."
 puts 'Finished!'
