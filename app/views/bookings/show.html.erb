@@ -1,6 +1,5 @@
 <div class="container">
   <p>From: <%= @booking.start_date.strftime('%m/%d/%Y') %></p>
   <p>To: <%= @booking.end_date.strftime('%m/%d/%Y') %></p>
-  <%= link_to "Continue shopping", jerseys_path, class: "btn btn-sm btn-primary" %>
-  <%= link_to "Back to Store", jerseys_path, class: "btn btn-outline-warning btn-sm" %>
+  <%= link_to "Continue shopping", jerseys_path, class: "btn btn-sm btn-primary mr-2" %> <%= link_to "Back to Store", jerseys_path, class: "btn btn-outline-warning btn-sm" %>
 </div>
