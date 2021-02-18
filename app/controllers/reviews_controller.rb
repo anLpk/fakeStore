@@ -1,4 +1,9 @@
 class ReviewsController < ApplicationController
+
+  def new
+    @review = Review.new
+  end
+
   def create
     @jersey = Jersey.find(params[:jersey_id])
     @review = Review.new(review_params)
@@ -6,7 +11,8 @@ class ReviewsController < ApplicationController
     if @review.save
         redirect_to jersey_path(@jersey, anchor: "review-#{@review.id}")
     else
-      render 'jerseys/show'
+      flash[:alert] = "Something went wrong."
+      :new
     end
   end
     

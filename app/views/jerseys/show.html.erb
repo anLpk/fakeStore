@@ -44,7 +44,7 @@
 <div class="container">
   <%= simple_form_for([ @jersey, @review ], remote: true) do |f| %>
     <%= f.input :content %>
-    <%= f.input :rating, :collection => 1..5 %>
-    <%= f.button :submit %>
+    <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
+    <%= f.submit "Send your review", class: "btn btn-sm btn-success" %>
   <% end %>
 </div>
